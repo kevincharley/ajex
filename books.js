@@ -31,8 +31,13 @@ $(document).ready(function(){
         }
     });
 });
-
-$("#category").click(function(){
+function cat(){
+  $.ajax({
+    type:"GET",
+    url: n_url,
+        success:function(bok){
+           // console.log(bok);
+$("#category").onchange(function(){
     //console.log(click)
    if($("#category").val() == "fantasy")
    var n_url = "fantasy.json";
@@ -41,12 +46,8 @@ $("#category").click(function(){
    else if($("#category").val() == "si-fi")
    var n_url = "sc-fi.json";
    
-  
- $.ajax({
-    type:"GET",
-    url: n_url,
-        success:function(bok){
-           // console.log(bok);
+}
+ 
            
            
             var output=" "
@@ -71,4 +72,4 @@ $("#category").click(function(){
         }
            });
         });
- 
+      
